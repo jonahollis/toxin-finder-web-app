@@ -49,10 +49,13 @@ main {
 }
 
 body main div {
-  border: solid rgb(8, 48, 41);
   padding: 1rem;
   border-radius: 0.625rem;
   margin: 1rem 0;
+}
+
+#single-result {
+  border: solid rgb(8, 48, 41);
 }
 
 h1, h2 {
@@ -63,7 +66,7 @@ h1, h2 {
 #label {
   background-color: rgb(19, 107, 92);
   border-radius: 30px;
-  padding: 0.2rem 0.9rem 0.3rem;
+  padding: 0.3rem 0.9rem 0.4rem;
   margin-bottom: 2rem;
 }
 
@@ -77,6 +80,11 @@ h3, h4 {
 
 p {
   font-weight: 200;
+}
+
+body > main > span {
+  display: table;
+  margin: 1em auto;
 }
 
 img{
