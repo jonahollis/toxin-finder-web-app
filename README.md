@@ -1,7 +1,7 @@
 ﻿# toxin-finder-web-app
 
 ## About this Project
-The project accesses the EPA database using a public API to determine the physical locations where toxic chemicals are manufactured, processed, or otherwise used nearby.
+The project accesses the EPA database using a public API to determine the physical locations where toxic chemicals are manufactured, processed, or otherwise used nearby the user-provided zip code.
 
 ## Tools used
 
