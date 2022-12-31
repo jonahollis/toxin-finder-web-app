@@ -2,6 +2,7 @@
 
 ## About this Project
 Based on the the user-provided zip code, this project accesses the EPA database using a public API to determine the physical locations where toxic chemicals are manufactured, processed, or otherwise used nearby.
+-  [Live Link](https://toxin-finder.netlify.app/)
 
 ## Tools used
 
