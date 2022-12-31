@@ -15,6 +15,7 @@ Based on the user-provided zip code, this project accesses the EPA database usin
 - [X] - print one result to dom
 - [x] - print all results to dom
 - [ ] - print total results found to dom
+- [ ] - add telephone number to result item
 
 ## Find More
 
