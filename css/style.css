@@ -33,6 +33,14 @@ body {
   min-height: 100vh;
 }
 
+a {
+  color: rgb(255, 255, 255);
+}
+
+a:hover {
+  color: rgb(32, 211, 74);
+}
+
 div#smoke , .smoke {
   display: flex;
   flex-direction: column ;
