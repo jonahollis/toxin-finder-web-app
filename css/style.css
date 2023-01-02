@@ -120,9 +120,9 @@ body img {
 
 
 @media (max-width: 900px) {
-  html { font-size: 20px; }
+  html { font-size: 150%; }
 }
 
 @media (max-width: 576px) {
-  html { font-size: 20px; }
+  html { font-size: 150%; }
 }
