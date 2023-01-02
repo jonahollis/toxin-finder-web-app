@@ -118,3 +118,11 @@ body img {
 /* ADDITIONAL STYLES
 /*******************************************/
 
+
+@media (max-width: 900px) {
+  html { font-size: 20px; }
+}
+
+@media (max-width: 400px) {
+  html { font-size: 20px; }
+}
