@@ -127,10 +127,12 @@ body img {
   html { font-size: 90%; }
   body { margin: 1.5rem; }
   div#results + img + span { text-align: center; display: block; }
+  div#results + img + span + span { text-align: center; display: block; }
 }
 
 @media all and (max-width: 576px) {
   html { font-size: 90%; }
   body { margin: 1rem; }
   div#results + img + span { text-align: center; display: block; }
+  div#results + img + span + span { text-align: center; display: block; }
 }
