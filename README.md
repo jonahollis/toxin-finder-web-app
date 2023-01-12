@@ -10,7 +10,7 @@ Based on the user-provided zip code, this project accesses the EPA database usin
 - CSS
 - JavaScript
 
-## Updates Planned
+## Possible Optimizations
 
 - [X] - print one result to dom
 - [x] - print all results to dom
