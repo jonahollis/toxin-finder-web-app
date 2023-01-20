@@ -1,4 +1,4 @@
-//Example fetch using pokemonapi.co
+
 document.querySelector('button').addEventListener('click', getFetch)
 
 function getFetch(){
@@ -10,24 +10,39 @@ function getFetch(){
       .then(res => res.json()) // parse response as JSON
       .then(data => {
         console.log(data)
+
+        for(i = 0; i < data.length; i++){
+  
+          const API_Results = item => `<div id="single-result"><h3 id="label">Facility Name:</h3>
+          <h3 class="name">${item.FACILITY_NAME}</h3>
+          <h4 id="label">Parent Company Name:</h4> <h4 id="parent-co">${item.PARENT_CO_NAME}</h4><h4 id="label">Address:</h4> 
+          <h4 id="street">${item.MAIL_STREET_ADDRESS} </h4><h4 id="town">${item.MAIL_CITY}</h4><h4 id="zip-state">${item.MAIL_ZIP_CODE} ${item.MAIL_STATE_ABBR}</h4></div>`;
+  
+          document.querySelector("#results").innerHTML = data.map(item => API_Results(item)).join('');
+
+        }
         
-        document.getElementById('name').innerText = data[0].FACILITY_NAME
-
-        document.getElementById('parent-co').innerText = data[0].PARENT_CO_NAME
-
-        document.getElementById('street').innerText = data[0].MAIL_STREET_ADDRESS
-
-        document.getElementById('town').innerText = data[0].MAIL_CITY
-
-        document.getElementById('zip-state').innerText = `${data[0].MAIL_ZIP_CODE} ${data[0].MAIL_STATE_ABBR}`
-
-        console.log(data[0].FACILITY_NAME)
 
       })
       .catch(err => {
           console.log(`error ${err}`)
       });
 }
+
+
+/* <h2>Results</h2>
+<div id="results">
+  <div id="single-result">
+    <h3 id="label">Facility Name:</h3> <h3 id="name"></h3>
+    <h4 id="label">Parent Company Name:</h4> <h4 id="parent-co"></h4>
+    <h4 id="label">Address:</h4> 
+    <h4 id="street"></h4>
+    <h4 id="town"></h4> 
+    <h4 id="zip-state"></h4> 
+    <h4></h4>
+  </div>
+</div> */
+
 
 
 // https://data.epa.gov/efservice/tri_facility/zip_code/BEGINNING/600/JSON
