@@ -1,4 +1,4 @@
-
+// https://replit.com/@timmy_i_chen/gtfo-cors#index.js
 document.querySelector('button').addEventListener('click', getFetch)
 
 function getFetch(){
@@ -30,19 +30,6 @@ function getFetch(){
 }
 
 
-/* <h2>Results</h2>
-<div id="results">
-  <div id="single-result">
-    <h3 id="label">Facility Name:</h3> <h3 id="name"></h3>
-    <h4 id="label">Parent Company Name:</h4> <h4 id="parent-co"></h4>
-    <h4 id="label">Address:</h4> 
-    <h4 id="street"></h4>
-    <h4 id="town"></h4> 
-    <h4 id="zip-state"></h4> 
-    <h4></h4>
-  </div>
-</div> */
 
-
-
+// https://replit.com/@timmy_i_chen/gtfo-cors#index.js
 // https://data.epa.gov/efservice/tri_facility/zip_code/BEGINNING/600/JSON
