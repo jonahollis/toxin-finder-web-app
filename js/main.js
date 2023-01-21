@@ -1,10 +1,9 @@
-// https://replit.com/@timmy_i_chen/gtfo-cors#index.js
 document.querySelector('button').addEventListener('click', getFetch)
 
 function getFetch(){
   const choice = document.querySelector('input').value
   console.log(choice)
-  const url = `https://gtfo-cors--timmy_i_chen.repl.co/get?url=https://data.epa.gov/efservice/tri_facility/zip_code/BEGINNING/${choice}/JSON`
+  const url = `https://bypass-cors.j0n4h.repl.co/get?url=https://data.epa.gov/efservice/tri_facility/zip_code/BEGINNING/${choice}/JSON`
 
   fetch(url)
       .then(res => res.json()) // parse response as JSON
@@ -31,5 +30,4 @@ function getFetch(){
 
 
 
-// https://replit.com/@timmy_i_chen/gtfo-cors#index.js
-// https://data.epa.gov/efservice/tri_facility/zip_code/BEGINNING/600/JSON
+
