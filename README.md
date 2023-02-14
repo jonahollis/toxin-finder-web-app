@@ -19,10 +19,12 @@ Based on the user-provided zip code, this project accesses the EPA database usin
 - [x] - make app more mobile friendly
 - [X] - print total number of results found to dom
 - [X] - overhaul whole project in Bootstrap
+- [ ] - fix nav header to top
 - [ ] - convert API request to RESTful format
 - [ ] - add telephone number to result item
 - [ ] - add errors messages to invalid inputs
 - [ ] - add "back to top" arrow
+- [ ] - add a search bar for results
 
 ## Find More
 
