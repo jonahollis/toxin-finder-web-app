@@ -5,134 +5,44 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@200;400;700&display=swap');
 
 /* Box Model Hack */
-*{
-  box-sizing: border-box;
-}
 
 /******************************************
 /* LAYOUT
 /*******************************************/
- /* rgb(8, 49, 42)  */
-body {
-  /* background-color: rgb(10, 58, 50); */
-  /* background-image: url('../img/toxic-bg.jpg'); */
-  /* background: linear-gradient(0deg, rgb(10, 58, 50)), rgba(rgb(10, 58, 50)), url('../img/toxic-bg.jpg'); */
-  background: rgb(10, 58, 50);  /* fallback for old browsers */
-  background: linear-gradient(rgb(10, 58, 50), rgba(0, 0, 0, 0.9)), url("../img/toxic-sm.jpg");  /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(rgb(10, 58, 50), rgba(0, 0, 0, 0.9)), url("../img/toxic-sm.jpg"); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-  background-size: cover;
-  background-attachment: fixed;
-  background-repeat: no-repeat;
-  color: #fff;
+ body {
   font-family: 'Roboto Slab', serif;
-  margin: 1.5rem;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  min-height: 100vh;
-}
-
-a {
-  color: rgb(255, 255, 255);
 }
 
 a:hover {
   color: rgb(32, 211, 74);
 }
 
-div#smoke , .smoke {
-  display: flex;
-  flex-direction: column ;
-  align-items: right ;
-  margin: none;
-  max-width: 800px;
-}
-
-.smoke {
-  width: 25%;
-  height: 25%;
-
-}
-
-
-main {
-  background-color: rgb(12, 70, 60);
-  padding: 1.5rem;
-  border-radius: 0.625rem;
-  max-width: 800px;
-  filter: drop-shadow(0 0 0.75rem rgba(0, 0, 0, 0.418));
-}
-
-body main div {
-  padding: 1rem;
-  border-radius: 0.625rem;
-  margin: 1rem 0;
+#result-header {
+  margin: 2rem;
 }
 
 #results {
-  margin: 0;
+  margin: 1rem;
 }
 
 #single-result {
   border: solid rgb(8, 48, 41);
-}
-
-h1, h2 {
-  font-weight: 700;
-
+  border-radius: 15px;
+  margin: 1rem;
+  padding: 1rem;
 }
 
 #label {
-  background-color: rgb(19, 107, 92);
-  border-radius: 30px;
+  background-color: rgb(187, 187, 201);
+  border-radius: 10px;
   padding: 0.3rem 0.9rem 0.4rem;
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
 }
 
-#main {
-  font-weight: 200;
-}
 
-h3, h4 {
-  font-weight: 200;
-}
-
-p {
-  font-weight: 200;
-}
-
-body > main > span {
-  display: table;
-  margin: 1em auto;
-}
-
-img{
-  display: block;
-  margin: 0 auto;
-}
-
-body img {
-  width: 20%;
-  height: 20%;
-}
 
 
 /******************************************
 /* ADDITIONAL STYLES
 /*******************************************/
 
-
-@media all and (max-width: 900px) {
-  html { font-size: 90%; }
-  body { margin: 1.5rem; }
-  div#results + img + span { text-align: center; display: block; }
-  div#results + img + span + span { text-align: center; display: block; }
-}
-
-@media all and (max-width: 576px) {
-  html { font-size: 90%; }
-  body { margin: 1rem; }
-  div#results + img + span { text-align: center; display: block; }
-  div#results + img + span + span { text-align: center; display: block; }
-}

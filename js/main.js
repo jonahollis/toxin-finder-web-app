@@ -1,4 +1,4 @@
-document.querySelector('button').addEventListener('click', getFetch)
+document.querySelector('#zipbutton').addEventListener('click', getFetch)
 
 function getFetch(){
   const choice = document.querySelector('input').value
@@ -9,6 +9,8 @@ function getFetch(){
       .then(res => res.json()) // parse response as JSON
       .then(data => {
         console.log(data)
+
+        document.querySelector('#result-header').innerHTML = `<h2>Results: ${data.length}</h2>`
 
         for(i = 0; i < data.length; i++){
   
@@ -27,6 +29,7 @@ function getFetch(){
           console.log(`error ${err}`)
       });
 }
+
 
 
 

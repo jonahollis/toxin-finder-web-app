@@ -9,13 +9,15 @@ Based on the user-provided zip code, this project accesses the EPA database usin
 - HTML
 - CSS
 - JavaScript
+- Bootstrap
 
 ## Possible Optimizations
 
 - [X] - print one result to dom
 - [x] - print all results to dom
 - [x] - make app more mobile friendly
-- [ ] - print total number of results found to dom
+- [X] - print total number of results found to dom
+- [X] - overhaul whole project in Bootstrap
 - [ ] - add telephone number to result item
 - [ ] - add errors messages to invalid inputs
 - [ ] - add "back to top" arrow
