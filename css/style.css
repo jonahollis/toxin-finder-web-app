@@ -17,30 +17,9 @@ a:hover {
   color: rgb(32, 211, 74);
 }
 
-#result-header {
-  margin: 2rem;
+.hidden {
+  display: none;
 }
-
-#results {
-  margin: 1rem;
-}
-
-#single-result {
-  border: solid rgb(8, 48, 41);
-  border-radius: 15px;
-  margin: 1rem;
-  padding: 1rem;
-}
-
-#label {
-  background-color: rgb(187, 187, 201);
-  border-radius: 10px;
-  padding: 0.3rem 0.9rem 0.4rem;
-  margin-bottom: 1rem;
-}
-
-
-
 
 /******************************************
 /* ADDITIONAL STYLES
