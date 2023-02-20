@@ -22,11 +22,11 @@ function getFetch(){
 
         for(i = 0; i < data.length; i++){
 
-          let count = 1
+          let count = 0
 
           const apiResults = item => 
             `<tr>
-            <th scope="col"></th>
+            <th scope="col">${count++}</th>
             <td><b>${item.FACILITY_NAME}</b><br>EPA ID: ${item.EPA_REGISTRY_ID}</td>
             <td>${item.PARENT_CO_NAME}</td>
             <td>${item.MAIL_STREET_ADDRESS}, ${item.MAIL_CITY}, ${item.MAIL_ZIP_CODE} ${item.MAIL_STATE_ABBR}<br>PH: ${item.ASGN_PUBLIC_PHONE}</td></tr>`
