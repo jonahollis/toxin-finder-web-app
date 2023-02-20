@@ -22,7 +22,7 @@ function getFetch(){
 
         for(i = 0; i < data.length; i++){
 
-          let count = 0
+          let count = 1
 
           const apiResults = item => 
             `<tr>
@@ -31,7 +31,7 @@ function getFetch(){
             <td>${item.PARENT_CO_NAME}</td>
             <td>${item.MAIL_STREET_ADDRESS}, ${item.MAIL_CITY}, ${item.MAIL_ZIP_CODE} ${item.MAIL_STATE_ABBR}<br>PH: ${item.ASGN_PUBLIC_PHONE}</td></tr>`
           
-            count++
+            
 
           document.querySelector("tbody").innerHTML = data.map(item => apiResults(item)).join('')
         }
