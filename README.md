@@ -21,11 +21,12 @@ Based on the user-provided zip code, this project accesses the EPA database usin
 - [X] - overhaul whole project in Bootstrap
 - [X] - add loading animation to page on API request
 - [X] - compile results to table format
-- [ ] - fix nav header to top
+- [X] - fix nav header to top
 - [ ] - convert API request to RESTful format
 - [X] - add telephone number to result item
-- [ ] - add errors messages to invalid inputs
-- [ ] - add "back to top" arrow
+- [ ] - add errors messages to invalid inputs in the DOM
+- [X] - add "back to top" arrow
+- [ ] - make "back to top" arrow float
 - [ ] - add a search bar for results
 
 ## Find More
