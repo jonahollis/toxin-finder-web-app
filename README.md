@@ -24,9 +24,10 @@ Based on the user-provided zip code, this project accesses the EPA database usin
 - [X] - fix nav header to top
 - [X] - add telephone number to result item
 - [X] - add "back to top" arrow
+- [X] - make "back to top" arrow float
+- [X] - prevent default on input textarea so that "Enter" calls button click
 - [ ] - convert API request to RESTful format
 - [ ] - add errors messages to invalid inputs in the DOM
-- [ ] - make "back to top" arrow float
 - [ ] - add a search bar for results
 
 ## Find More
