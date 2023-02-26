@@ -59,7 +59,7 @@ async function getFetch(){
         document.getElementById('spinner').innerHTML =	''
 
         document.querySelector('#result-header').innerHTML = `<h2>Results: ${data.length}</h2>`
-
+        
         let count = 1
 
         const apiResults = item => 
@@ -70,7 +70,6 @@ async function getFetch(){
           <td>${item.MAIL_STREET_ADDRESS}, ${item.MAIL_CITY}, ${item.MAIL_ZIP_CODE} ${item.MAIL_STATE_ABBR}<br>PH: ${item.ASGN_PUBLIC_PHONE}</td></tr>`
 
         document.querySelector("tbody").innerHTML = data.map(item => apiResults(item)).join('')
-        
       })
 
   }catch(error){
