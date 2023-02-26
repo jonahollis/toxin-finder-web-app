@@ -22,10 +22,10 @@ Based on the user-provided zip code, this project accesses the EPA database usin
 - [X] - add loading animation to page on API request
 - [X] - compile results to table format
 - [X] - fix nav header to top
-- [ ] - convert API request to RESTful format
 - [X] - add telephone number to result item
-- [ ] - add errors messages to invalid inputs in the DOM
 - [X] - add "back to top" arrow
+- [ ] - convert API request to RESTful format
+- [ ] - add errors messages to invalid inputs in the DOM
 - [ ] - make "back to top" arrow float
 - [ ] - add a search bar for results
 
