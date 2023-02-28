@@ -9,7 +9,7 @@ Based on the user-provided zip code, this project accesses the EPA database usin
 - HTML
 - CSS
 - JavaScript
-- AJAX
+- API requests
 - Bootstrap
 
 ## Possible Optimizations
