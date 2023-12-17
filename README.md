@@ -8,8 +8,11 @@ Based on the user-provided zip code, this project accesses the EPA database usin
 
 - HTML
 - CSS
+- Express
+- Node
 - JavaScript
-- API requests
+- Axios
+- REST API requests
 - Bootstrap
 
 ## Possible Optimizations
@@ -26,8 +29,10 @@ Based on the user-provided zip code, this project accesses the EPA database usin
 - [X] - add "back to top" arrow
 - [X] - make "back to top" arrow float
 - [X] - prevent default on input textarea so that "Enter" calls button click
-- [ ] - convert API request to RESTful format
-- [ ] - add errors messages to invalid inputs in the DOM
+- [X] - convert API request to RESTful format
+- [X] - add detailed compliance reports by querying additional table
+- [ ] - include additional information on violations/enforcements
+- [ ] - add input field validation and errors
 - [ ] - add a search bar for results
 
 ## Find More

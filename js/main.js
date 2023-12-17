@@ -48,7 +48,8 @@ async function getFetch(){
 
   const zipcode = document.querySelector('input').value
   console.log(zipcode)
-  const url = `https://bypass-cors.j0n4h.repl.co/get?url=https://data.epa.gov/efservice/tri_facility/zip_code/BEGINNING/${zipcode}/JSON`
+  // const url = `https://data.epa.gov/efservice/tri_facility/zip_code/BEGINNING/${zipcode}/tri_reporting_form/rows/0:15/JSON`
+  const url = `https://data.epa.gov/efservice/tri_facility/zip_code/BEGINNING/${zipcode}/tri_reporting_form/rows/JSON`
 
   try {
     await fetch(url)
@@ -62,16 +63,85 @@ async function getFetch(){
         
         let count = 1
 
-        const apiResults = item => 
-          `<tr>
-          <th scope="col">${count++}</th>
-          <td><b>${item.FACILITY_NAME}</b><br>EPA ID: ${item.EPA_REGISTRY_ID}</td>
-          <td>${item.PARENT_CO_NAME}</td>
-          <td>${item.MAIL_STREET_ADDRESS}, ${item.MAIL_CITY}, ${item.MAIL_ZIP_CODE} ${item.MAIL_STATE_ABBR}<br>PH: ${item.ASGN_PUBLIC_PHONE}</td></tr>`
+        const apiResults = item => {
+
+          if (Array.isArray(item.TRI_REPORTING_FORM) && item.TRI_REPORTING_FORM.length > 0) {
+
+            let buttonID = `button-${count}`
+            let detailRowID = `detail-${count}`
+        
+            return `<tr>
+                      <th scope="col">${count++}</th>
+                      <td><b>${item.FACILITY_NAME}</b><br>EPA ID: ${item.EPA_REGISTRY_ID}</td>
+                      <td>${item.PARENT_CO_NAME}</td>
+                      <td>${item.MAIL_STREET_ADDRESS}, ${item.MAIL_CITY}, ${item.MAIL_ZIP_CODE} ${item.MAIL_STATE_ABBR}, PH: ${item.ASGN_PUBLIC_PHONE}
+                      </td>
+                      <td><div class="button-container"><button id="${buttonID}" class="toggle-detail">Expand Results</button><div></td>
+                    </tr>
+                    <td id="${detailRowID}" colspan="5" class="hidden"> 
+                      <table class="table table-striped table-responsive table-sm">
+                      <thead>
+                        <tr>
+                          <th scope="col"><b>Year Reported</b></th>
+                          <th scope="col"><b></b>Date Certified</th>
+                          <th scope="col"><b></b>Chemical Leaked</th>
+                          <th scope="col"><b>Amount Onsite</b></th>
+                          <th scope="col"><b>Amount Leaked(lb)</b></th>
+                        </tr>
+                      </thead>
+                        ${item.TRI_REPORTING_FORM.map( reportedIncident => {
+                          return `<tr class="detail-table">
+                              <td>${reportedIncident.REPORTING_YEAR || ''}</td>
+                              <td>${reportedIncident.CERTIF_DATE_SIGNED || ''}</td>
+                              <td>${reportedIncident.CAS_CHEM_NAME || ''}</td>
+                              <td>${reportedIncident.MAX_AMOUNT_OF_CHEM || ''}</td>
+                              <td>${reportedIncident.ONE_TIME_RELEASE_QTY
+                                || ''}</td>
+                            </tr>`
+                        }).join('')}
+                      </table>
+                    </td>
+                    `;
+          } else {
+            // return `<tr>
+            //           <th scope="col">${count++}</th>
+            //           <td><b>${item.FACILITY_NAME}</b><br>EPA ID: ${item.EPA_REGISTRY_ID}</td>
+            //           <td>${item.PARENT_CO_NAME}</td>
+            //           <td>${item.MAIL_STREET_ADDRESS}, ${item.MAIL_CITY}, ${item.MAIL_ZIP_CODE} ${item.MAIL_STATE_ABBR}<br>PH: ${item.ASGN_PUBLIC_PHONE}</td>
+            //         </tr>`;
+            return `<tr>
+              <th scope="col">${count++}</th>
+              <td><b>${item.FACILITY_NAME}</b><br>EPA ID: ${item.EPA_REGISTRY_ID}</td>
+              <td>${item.PARENT_CO_NAME}</td>
+              <td>${item.MAIL_STREET_ADDRESS}, ${item.MAIL_CITY}, ${item.MAIL_ZIP_CODE} ${item.MAIL_STATE_ABBR}<br>PH: ${item.ASGN_PUBLIC_PHONE}
+              </td>
+              <td>No Results</td>
+              <tr></tr>
+            </tr>
+            `;
+          }
+        }
+        
 
         document.querySelector("tbody").innerHTML = data.map(item => apiResults(item)).join('')
-      })
 
+      document.querySelectorAll('.toggle-detail').forEach(button => {
+      button.addEventListener('click', function() {
+        const detailID = this.id.replace('button-', 'detail-');
+        const detailRow = document.getElementById(detailID);
+        if (detailRow.classList.contains('hidden')) {
+          detailRow.classList.remove('hidden');
+          // detailRow.classList.add('show');
+          this.textContent = 'Collapse Results';
+        } else {
+          // detailRow.classList.remove('show');
+          detailRow.classList.add('hidden');
+          this.textContent = 'Expand Results';
+        }
+      });
+    });
+
+      })
   }catch(error){
     console.log(error)
   }

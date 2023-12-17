@@ -1,0 +1,17 @@
+{
+  "name": "toxin-finder-web-app",
+  "version": "1.0.0",
+  "description": "Based on the user-provided zip code, this project accesses the EPA database using a public API to determine the physical locations where toxic chemicals are manufactured, processed, or otherwise used nearby.\r -  [Live Link](https://toxin-finder.netlify.app/)",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^1.6.2",
+    "cors": "^2.8.5",
+    "express": "^4.18.2"
+  }
+}
