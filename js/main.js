@@ -49,7 +49,8 @@ async function getFetch(){
   const zipcode = document.querySelector('input').value
   console.log(zipcode)
   // const url = `https://data.epa.gov/efservice/tri_facility/zip_code/BEGINNING/${zipcode}/tri_reporting_form/rows/0:15/JSON`
-  const url = `https://data.epa.gov/efservice/tri_facility/zip_code/BEGINNING/${zipcode}/tri_reporting_form/rows/JSON`
+  // const url = `https://data.epa.gov/efservice/tri_facility/zip_code/BEGINNING/${zipcode}/tri_reporting_form/rows/JSON`
+  const url = `https://https://toxin-finder-backend.j0n4h.repl.co//get?url=https://data.epa.gov/efservice/tri_facility/zip_code/BEGINNING/${zipcode}/tri_reporting_form/rows/JSON`
 
   try {
     await fetch(url)
