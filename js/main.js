@@ -77,7 +77,7 @@ async function getFetch(){
                       <td>${item.PARENT_CO_NAME}</td>
                       <td>${item.MAIL_STREET_ADDRESS}, ${item.MAIL_CITY}, ${item.MAIL_ZIP_CODE} ${item.MAIL_STATE_ABBR}, PH: ${item.ASGN_PUBLIC_PHONE}
                       </td>
-                      <td><div class="button-container"><button id="${buttonID}" class="toggle-detail">Expand Results</button><div></td>
+                      <td class="button-container"><div class="button-container"><button id="${buttonID}" class="btn btn-sm btn-dark toggle-detail">Expand Results</button><div></td>
                     </tr>
                     <td id="${detailRowID}" colspan="5" class="hidden"> 
                       <table class="table table-striped table-responsive table-sm">
