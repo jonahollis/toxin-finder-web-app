@@ -53,8 +53,9 @@ async function getFetch() {
     try {
       const response = await fetch('/get?url=' + encodeURIComponent(url));
       if (!response.ok) {
-        throw new Error(`HTTP error! status: ${response.status}`);
-      }
+        const errorText = await response.text(); 
+        throw new Error(`HTTP error! status: ${response.status} - ${errorText}`);
+    }
   
       const dataObject = await response.json();
       let data = dataObject.tri_facilityList.tri_facility;
