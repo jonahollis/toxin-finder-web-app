@@ -39,38 +39,32 @@ function backToTop() {
 
 document.querySelector('#zipbutton').addEventListener('click', getFetch)
 
-async function getFetch(){
-  document.getElementById('spinner').innerHTML =	`<div class="d-flex justify-content-center m-5">
-  <div class="spinner-border" role="status">
-    <span class="visually-hidden">Loading...</span>
-  </div>
-  </div>`
-
-  const zipcode = document.querySelector('input').value
-  console.log(zipcode)
-  // const url = `https://data.epa.gov/efservice/tri_facility/zip_code/BEGINNING/${zipcode}/tri_reporting_form/rows/0:15/JSON`
-  const url = `https://data.epa.gov/efservice/tri_facility/zip_code/BEGINNING/${zipcode}/tri_reporting_form/`
-  // const url = `https://https://toxin-finder-backend.j0n4h.repl.co//get?url=https://data.epa.gov/efservice/tri_facility/zip_code/BEGINNING/${zipcode}/tri_reporting_form/rows/JSON`
-
-  try {
-    await fetch('/get?url=' + url)
-      .then(res => {
-        if (!res.ok) {
-          throw new Error(`HTTP error! status: ${res.status}`);
-        }
-        return res.json()
-      })
-      .then(data => {
-        console.log(data)
-        let resultCount = data.tri_facilityList.tri_facility.length;
-        data = data.tri_facilityList.tri_facility;
-
-
-        document.getElementById('spinner').innerHTML =	''
-
-        document.querySelector('#result-header').innerHTML = `<h2>Results: ${resultCount}</h2>`
-        
-        let count = 1
+async function getFetch() {
+    document.getElementById('spinner').innerHTML = `
+      <div class="d-flex justify-content-center m-5">
+        <div class="spinner-border" role="status">
+          <span class="visually-hidden">Loading...</span>
+        </div>
+      </div>`;
+  
+    const zipcode = document.querySelector('input').value;
+    const url = `https://data.epa.gov/efservice/tri_facility/zip_code/BEGINNING/${zipcode}/tri_reporting_form/`;
+  
+    try {
+      const response = await fetch('/get?url=' + encodeURIComponent(url));
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+  
+      const dataObject = await response.json();
+      let data = dataObject.tri_facilityList.tri_facility;
+      let resultCount = data.length;
+  
+      document.getElementById('spinner').innerHTML = '';
+  
+      document.querySelector('#result-header').innerHTML = `<h2>Results: ${resultCount}</h2>`;
+  
+      let count = 1;
 
         const apiResults = item => {
           const facilityName = item.FACILITY_NAME[0];
@@ -136,26 +130,18 @@ async function getFetch(){
         };
         
 
-        document.querySelector("tbody").innerHTML = data.map(item => apiResults(item)).join('')
+        document.querySelector("tbody").innerHTML = data.map(item => apiResults(item)).join('');
 
-      document.querySelectorAll('.toggle-detail').forEach(button => {
-      button.addEventListener('click', function() {
-        const detailID = this.id.replace('button-', 'detail-');
-        const detailRow = document.getElementById(detailID);
-        if (detailRow.classList.contains('hidden')) {
-          detailRow.classList.remove('hidden');
-          // detailRow.classList.add('show');
-          this.textContent = 'Collapse Results';
-        } else {
-          // detailRow.classList.remove('show');
-          detailRow.classList.add('hidden');
-          this.textContent = 'Expand Results';
-        }
-      });
-    });
-
-      })
-  }catch(error){
-    console.log(error)
-  }
-}
+        document.querySelectorAll('.toggle-detail').forEach(button => {
+          button.addEventListener('click', function() {
+            const detailID = this.id.replace('button-', 'detail-');
+            const detailRow = document.getElementById(detailID);
+            detailRow.classList.toggle('hidden');
+            this.textContent = detailRow.classList.contains('hidden') ? 'Expand Results' : 'Collapse Results';
+          });
+        });
+      } catch (error) {
+        console.error('Fetch error:', error);
+        document.getElementById('spinner').innerHTML = ''; 
+      }
+    }

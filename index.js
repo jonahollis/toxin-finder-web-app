@@ -1,9 +1,11 @@
+require('dotenv').config();
 const express = require('express');
 const axios = require('axios');
 const cors = require('cors');
 const xml2js = require('xml2js');
 const parser = new xml2js.Parser();
 const app = express();
+const port = process.env.PORT || 8080;
 
 app.use(express.static('public'));
 
@@ -12,7 +14,7 @@ app.get('/', (req, res) => res.sendFile(__dirname + '/public/index.html'));
 app.get('/get', cors(), async (req, res) => {
     console.log(req.query);
     const url = req.query.url;
-    
+
     if (!url) {
       res.status(400).send('URL required');
       return;
@@ -37,5 +39,5 @@ app.get('/get', cors(), async (req, res) => {
 });
 
 app.listen(8080, () => {
-  console.log('Server started on port 8080');
+  console.log(`Server started on port ${port}`);
 });
